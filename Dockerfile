@@ -17,7 +17,8 @@ RUN apt-get update && apt-get install -y wget && \
     chmod +x /tmp/ibm-java.bin; \
     /tmp/ibm-java.bin -i silent -f /tmp/response.properties; \
     rm -f /tmp/ibm-java.bin && \
-    chown -R 1001:0 $JAVA_71_HOME
+    chown -R 1001:0 $JAVA_71_HOME && \
+    echo "JAVA_HOME=${JAVA_71_HOME}" >> /config/server.env
 
 COPY server.xml /config/
 COPY docker-prestart.sh /usr/local/bin/

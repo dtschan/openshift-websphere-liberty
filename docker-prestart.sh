@@ -13,6 +13,7 @@ if [ -e /etc/tls/private/tls.crt ] && [ -e /etc/tls/private/tls.key ]; then
   fi
 
   echo "KEYSTORE_PASSWORD=${KEYSTORE_PASSWORD}" >>/config/bootstrap.properties
+  echo "<server></server>" >/config/configDropins/defaults/keystore.xml
 fi
 
 exec "$@"

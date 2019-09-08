@@ -3,6 +3,7 @@ FROM websphere-liberty:19.0.0.3-webProfile8
 USER root
 COPY server.xml /config/
 COPY docker-prestart.sh /usr/local/bin/
+RUN chown default /config/* && chmod g+rw /config/*
 
 USER 1001
 

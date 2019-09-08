@@ -16,4 +16,6 @@
     <applicationManager autoExpand="true"/>
 
     <webContainer httpsIndicatorHeader="X-Forwarded-Proto"/>
+
+    <keyStore id="defaultKeyStore" location="key.p12" type="PKCS12" password="${KEYSTORE_PASSWORD}" />
 </server>

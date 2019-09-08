@@ -6,7 +6,8 @@ ENV JAVA_71_HOME=/opt/IBM/java/java71 \
 USER root
 
 # download and install IBM SDK 7.1
-RUN wget -q -U UA_IBM_JAVA_Docker -O /tmp/ibm-java.bin http://public.dhe.ibm.com/ibmdl/export/pub/systems/cloud/runtimes/java/7.1.4.45/linux/x86_64/ibm-java-sdk-7.1-4.45-x86_64-archive.bin; \
+RUN apt-get update && apt-get install -y wget && \
+    wget -q -U UA_IBM_JAVA_Docker -O /tmp/ibm-java.bin http://public.dhe.ibm.com/ibmdl/export/pub/systems/cloud/runtimes/java/7.1.4.45/linux/x86_64/ibm-java-sdk-7.1-4.45-x86_64-archive.bin; \
     echo "${ESUM}  /tmp/ibm-java.bin" | sha256sum -c -; \
     echo "INSTALLER_UI=silent" > /tmp/response.properties; \
     echo "USER_INSTALL_DIR=${JAVA_71_HOME}" >> /tmp/response.properties; \
